@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>My Special Message 💗</title>
+    
+    <style>
+        body {
+            /* Ensures no unexpected margins or padding from the browser */
+            margin: 0;
+            padding: 0;
+            /* Sets a clean, neutral background color */
+            background-color: #f0f0f0; 
+            /* Ensures smooth scrolling on mobile */
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page-container {
+            /* Makes sure the content container doesn't exceed screen width */
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+
+        .page {
+            /* Each page should take up the full width available */
+            width: 100%;
+            /* Adds a small space between pages for visual separation */
+            margin-bottom: 20px; 
+            /* Centers the content within the page container */
+            text-align: center;
+        }
+
+        .page-image {
+            /* Crucial: Makes the image scale to the width of the screen */
+            width: 100%; 
+            /* Ensures the image height adjusts proportionally */
+            height: auto; 
+            /* Prevents the image from being larger than its container */
+            display: block;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <div class="page-container">
+        <div class="page" id="page1">
+            <img src="page1_sorry.jpg" alt="Dreamy Capybara Sorry Page" class="page-image">
+        </div>
+
+        <div class="page" id="page2">
+            <img src="page2_missyou.jpg" alt="I Miss You Animations" class="page-image">
+        </div>
+
+        <div class="page" id="page3">
+            <img src="page3_lovequest.jpg" alt="Love Quest Game Interface" class="page-image">
+        </div>
+
+        <div class="page" id="page4">
+            <img src="page4_tamilmessage.jpg" alt="Thangoo Nee Illamal Message" class="page-image">
+        </div>
+    </div>
+
+</body>
+</html>
