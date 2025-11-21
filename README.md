@@ -1,2 +1,256 @@
-# Suprise-
-A small suprise
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💌 A Romantic Journey for You 💖</title>
+    <style>
+        /* BASE STYLES */
+        body {
+            margin: 0;
+            overflow: hidden; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #4a4a4a;
+            background-color: #fce4ec; 
+            transition: background-color 0.5s;
+        }
+        .page {
+            height: 100vh;
+            width: 100vw;
+            display: none; 
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            position: absolute; 
+            top: 0; left: 0;
+        }
+        .active-page {
+            display: flex;
+            background-color: #ffe0f0; 
+        }
+
+        /* NAVIGATION BUTTON */
+        .next-btn {
+            padding: 12px 30px;
+            font-size: 20px;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 20; 
+        }
+        .next-btn:hover { background-color: #e05c9e; }
+        
+        /* INCREASED ANIMAL ANIMATION SIZE */
+        .animal-container {
+            position: absolute;
+            font-size: 70px; 
+            z-index: 5;
+            padding: 5px;
+            transition: transform 0.3s;
+        }
+
+        /* PAGE 1 STYLES (Gate Screen) */
+        #page-1 .animal-container { animation: wobble 1s infinite alternate; }
+        #page-1 .capybara-icon { font-size: 100px; }
+        
+        /* QUOTE BOX STYLES */
+        .quote-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            max-width: 80%;
+            margin-top: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        .quote-box p {
+            font-size: 20px;
+            color: #880e4f;
+            margin: 0;
+            font-style: italic;
+        }
+        .quote-box h2 {
+            color: #d81b60;
+            margin-top: 0;
+        }
+
+        /* FLOATING HEARTS (Only on the Final Page) */
+        #page-5 { 
+            background-color: #fce4ec; 
+            overflow: hidden;
+        }
+        .heart {
+            position: absolute;
+            width: 15px; height: 15px;
+            color: #ffb3c1;
+            font-size: 20px; 
+            pointer-events: none;
+            opacity: 0;
+            animation: float-up 6s linear infinite;
+        }
+        
+        /* KEYFRAME ANIMATIONS */
+        @keyframes float-up {
+            0% { opacity: 0; transform: translateY(100vh); } 10% { opacity: 0.8; }
+            90% { opacity: 0.8; } 100% { opacity: 0; transform: translateY(-100px); }
+        }
+        @keyframes wobble {
+            0% { transform: rotate(0deg); } 100% { transform: rotate(5deg); }
+        }
+        @keyframes peek {
+            0%, 50% { transform: translateY(0); } 55%, 95% { transform: translateY(-10px); } 100% { transform: translateY(0); }
+        }
+        @keyframes tail-flick {
+            0%, 80% { transform: rotate(0deg); } 85%, 95% { transform: rotate(-10deg); }
+        }
+        @keyframes blink {
+            0%, 90% { opacity: 1; } 92%, 98% { opacity: 0.5; }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="page-1" class="page active-page">
+        <span class="animal-container capybara-icon" style="top: 25%; left: 50%; transform: translateX(-50%);">🐹</span> 
+        <div id="question-box" style="padding: 25px; background: rgba(255, 255, 255, 0.9); border-radius: 15px;">
+            <h1 style="color: #d81b60;">"Who is my babbbyyy girl?"</h1>
+            <input type="text" id="answer-input" placeholder="Type your answer here..." style="padding: 12px; font-size: 18px; border: 2px solid #ff69b4; border-radius: 8px; width: 80%; max-width: 250px; text-align: center;">
+            <button id="submit-button" class="next-btn">Submit & Start the Journey 💖</button>
+        </div>
+    </div>
+
+    <div id="page-2" class="page">
+        <span class="animal-container cat-icon" style="top: 10%; left: 10%; animation: blink 4s infinite alternate;">🐈</span>
+        <span class="animal-container dog-icon" style="bottom: 15%; right: 10%; animation: tail-flick 3s infinite alternate;">🐕</span>
+        
+        <div class="quote-box">
+            <h2>Page 2: Playful Love</h2>
+            <p>"My heart still leaps for you like a puppy every time you walk into the room. You're my comfort and my happy chaos! 🐶💖"</p>
+        </div>
+        
+        <button onclick="nextPage()" class="next-btn">Next Clue</button>
+    </div>
+
+    <div id="page-3" class="page">
+        <span class="animal-container panda-icon" style="top: 15%; right: 5%; animation: peek 3s infinite alternate;">🐼</span>
+        <span class="animal-container penguin-icon" style="bottom: 10%; left: 5%; animation: wobble 2s infinite alternate;">🐧</span>
+        
+        <div class="quote-box">
+            <h2>Page 3: Cozy Commitment</h2>
+            <p>"You're my cuddly, cozy Panda. And like a penguin, I promise to walk every path of life right beside you forever. 🐧💕"</p>
+        </div>
+
+        <button onclick="nextPage()" class="next-btn">Keep Going</button>
+    </div>
+    
+    <div id="page-4" class="page">
+        <span class="animal-container capybara-icon" style="top: 20%; right: 5%; animation: peek 3s infinite alternate;">🐹</span>
+        <div class="quote-box">
+            <h2>Page 4: Just for Us</h2>
+            <p>"Loving you feels like the safest, most peaceful place in the world. You make my heart feel completely understood. ✨"</p>
+        </div>
+        
+        <button onclick="nextPage()" class="next-btn">Ready for the Finale</button>
+    </div>
+
+    <div id="page-5" class="page">
+        <span class="animal-container capybara-icon" style="top: 25%; left: 5%;">🐹</span> 
+        <span class="animal-container penguin-icon" style="bottom: 5%; right: 5%;">🐧</span>
+        <span class="animal-container cat-icon" style="top: 5%; right: 5%;">🐈</span>
+        <span class="animal-container dog-icon" style="bottom: 15%; left: 50%; transform: translateX(-50%);">🐕</span>
+        <span class="animal-container panda-icon" style="top: 40%; right: 10%;">🐼</span>
+
+        <div class="quote-box" style="z-index: 10;">
+            <h1>The Grand Finale!</h1>
+            <p style="font-size: 24px;">"You are my favorite everything. You’re my gentle Capybara comfort, and my home. I love you! ❤️👑"</p>
+            <p style="margin-top: 10px;">All these beautiful animals and hearts are here because of you! 💕</p>
+        </div>
+    </div>
+
+
+    <script>
+        const answerInput = document.getElementById('answer-input');
+        const submitButton = document.getElementById('submit-button');
+        let currentPage = 1;
+        const totalPages = 5;
+
+        // --- Core Page Navigation Logic ---
+        function showPage(pageNumber) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active-page');
+                page.style.display = 'none';
+            });
+            const nextPageElement = document.getElementById(`page-${pageNumber}`);
+            if (nextPageElement) {
+                nextPageElement.style.display = 'flex';
+                setTimeout(() => nextPageElement.classList.add('active-page'), 10);
+            }
+
+            // Start heart animation only on the FINAL page (Page 5)
+            if (pageNumber === totalPages) {
+                startHeartAnimation();
+            }
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        }
+
+        // --- Page 1 (Gate) Logic ---
+        function checkAnswer() {
+            const answer = answerInput.value.trim().toLowerCase();
+            if (answer.length > 0) { 
+                nextPage();
+            } else {
+                alert("Please type your answer, babbbyyy!");
+                answerInput.focus();
+            }
+        }
+
+        submitButton.addEventListener('click', checkAnswer);
+        answerInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                checkAnswer();
+            }
+        });
+
+        // --- Floating Hearts Logic (Only needed for final page) ---
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '💖'; 
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 4 + 's'; 
+            heart.style.fontSize = Math.random() * 15 + 15 + 'px'; 
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000); 
+        }
+        
+        let heartInterval;
+        function startHeartAnimation() {
+            if (!heartInterval) {
+                heartInterval = setInterval(createHeart, 250); 
+            }
+        }
+
+        // Initialize the first page
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage(1);
+        });
+    </script>
+</body>
+</html>
